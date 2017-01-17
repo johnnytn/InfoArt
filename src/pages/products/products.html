@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar color="dark" hideBackButton="true">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title> Produtos </ion-title>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="add()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding style="text-align:center">
+    <p><b> <h2> Lista de Produtos para compra </h2> </b></p>
+
+    <ion-grid>
+        <ion-list>
+            <ion-item>
+                <ion-row>
+                    <ion-col width-80>
+                        Nome
+                    </ion-col>
+                    <ion-col width-20>
+                        Qtd
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+
+            <ion-item *ngFor="let product of products | async" (click)="show(product.$key, product)">
+
+                <ion-row>
+                    <ion-col width-80>
+                        {{product.name}}
+                    </ion-col>
+
+                    <ion-col width-20>
+                        {{product.quantity}}
+                    </ion-col>
+                </ion-row>
+
+            </ion-item>
+        </ion-list>
+    </ion-grid>
+</ion-content>
