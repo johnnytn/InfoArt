@@ -7,11 +7,9 @@
 
 import { Injectable } from '@angular/core';
 import { AuthProviders, 
-        /*FirebaseAuth, */
+        AuthMethods,
         AngularFire,
-        /*AngularFireAuth,*/
-        FirebaseAuthState,
-        AuthMethods } from 'angularfire2';
+        FirebaseAuthState } from 'angularfire2';
 
 @Injectable()
 export class AuthService {
@@ -31,21 +29,62 @@ export class AuthService {
     }
 
     // Sign with facebook
-    signInWithFacebook(): firebase.Promise < FirebaseAuthState > {
+    public signInWithFacebook(): firebase.Promise < FirebaseAuthState > {
         return this.af.auth.login({
             provider: AuthProviders.Facebook,
             method: AuthMethods.Popup
         });
     }
+    
+      public login(user): firebase.Promise < FirebaseAuthState > {
+        //this.showLoading();
+        
+        return this.af.auth.login({
+          email: user.email,
+          password: user.password,
+        },
+        {
+          provider: AuthProviders.Password,
+          method: AuthMethods.Password,
+        });
+          
+          
+          //this.af.auth.login(user);
+    } 
+    
+    public registerUser(user): firebase.Promise < FirebaseAuthState > {
+        //this.showLoading();
+        
+        return this.af.auth.createUser(user);
+    } 
+    
+  /*  signInWithFacebook() : firebase.Promise < FirebaseAuthState > {
+        console.log('logging with FB');
+        let self = this;
+       return this.af.auth.login({
+            provider: AuthProviders.Facebook,
+            method: AuthMethods.Popup
+        }).then(function(response){
+            console.log('logged with FB');
+            let user = {
+                email : response.auth.email,
+                picture : response.auth.photoURL
+            }
+            window.localStorage.setItem('user', JSON.stringify(user));
+            self.navCtrl.pop();
+        }).catch(function(error){
+            console.log(error);
+        });
+    }*/
 
     // Sign out
-    signOut(): void {
+    public signOut(): void {
        // this.auth$.logout();
          this.af.auth.logout();
     }
 
     // Display user name
-    displayName(): string {
+    public displayName(): string {
         if (this.authState != null) {
             return this.authState.facebook.displayName;
         } else {

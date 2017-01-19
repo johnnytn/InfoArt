@@ -1,0 +1,38 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.infoart"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.infoart"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "203515523386971",
+            "APP_NAME": "InfoArt",
+            "PACKAGE_NAME": "com.infoart"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.infoart"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.infoart"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.infoart"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.infoart"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.infoart"
+        }
+    },
+    "dependent_plugins": {}
+}

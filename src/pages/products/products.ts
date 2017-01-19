@@ -11,7 +11,7 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
     selector: 'page-products',
     templateUrl: 'products.html'
 })
-export class Products {
+export class ProductsPage {
 
 
     products: FirebaseListObservable < any > ;

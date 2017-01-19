@@ -46,5 +46,24 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "cordova-plugin-facebook4": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-facebook4"
+        },
+        "is_top_level": true,
+        "variables": {
+            "APP_ID": "203515523386971",
+            "APP_NAME": "InfoArt"
+        }
+    },
+    "cordova-plugin-inappbrowser": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-inappbrowser@1.6.1"
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }

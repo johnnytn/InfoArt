@@ -2,10 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { Login } from '../pages/login/login';
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { Sidebar } from '../pages/sidebar/sidebar';
-import { Products } from '../pages/products/products';
+import { ProductsPage } from '../pages/products/products';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,7 +13,7 @@ import { Products } from '../pages/products/products';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Login;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -24,7 +24,7 @@ export class MyApp {
     this.pages = [
       { title: 'Principal', component: HomePage },
       { title: 'Sidebar', component: Sidebar },
-      { title: 'Produtos', component: Products }
+      { title: 'Produtos', component: ProductsPage }
     ];
 
   }

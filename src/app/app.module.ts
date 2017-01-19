@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { Login } from '../pages/login/login';
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { Sidebar } from '../pages/sidebar/sidebar';
-import { Products } from '../pages/products/products';
+import { ProductsPage } from '../pages/products/products';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -23,10 +23,10 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    Login,
+    LoginPage,
     HomePage,
     Sidebar,
-    Products
+    ProductsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -35,10 +35,10 @@ export const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Login,
+    LoginPage,
     HomePage,
     Sidebar,
-    Products
+    ProductsPage
   ],
     providers: [AuthService]
   //providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
