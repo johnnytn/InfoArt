@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 
-import { MyApp } from './app.component';
-import { LoginPage } from '../pages/login/login';
-import { HomePage } from '../pages/home/home';
-import { Sidebar } from '../pages/sidebar/sidebar';
-import { ProductsPage } from '../pages/products/products';
-
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
 import { AuthService } from '../providers/auth-service';
+import { Utils } from '../providers/utils';
+
+import { MyApp } from './app.component';
+// Pages
+import { LoginPage } from '../pages/login/login';
+import { HomePage } from '../pages/home/home';
+import { Sidebar } from '../pages/sidebar/sidebar';
+import { ProductPage } from '../pages/product/product';
+import { ProviderPage } from '../pages/provider/provider';
  
 // AF2 Settings
 export const firebaseConfig = {
@@ -25,8 +28,9 @@ export const firebaseConfig = {
     MyApp,
     LoginPage,
     HomePage,
-    Sidebar,
-    ProductsPage
+    ProductPage,
+    ProviderPage
+      
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -37,10 +41,10 @@ export const firebaseConfig = {
     MyApp,
     LoginPage,
     HomePage,
-    Sidebar,
-    ProductsPage
+    ProductPage,
+    ProviderPage
   ],
-    providers: [AuthService]
+    providers: [AuthService, Utils]
   //providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}

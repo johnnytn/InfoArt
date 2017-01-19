@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
-import { NavController, MenuController, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, 
+        MenuController, 
+        AlertController, LoadingController } from 'ionic-angular';
 
-import { AuthService } from '../../providers/auth-service';
 import { AngularFire, 
         FirebaseListObservable,
         AuthProviders, 
         AuthMethods} from 'angularfire2';
 
+// Providers
+import { AuthService } from '../../providers/auth-service';
+import {  Utils } from '../../providers/utils';
+
+//Pages
 import { HomePage } from '../home/home';
-import { ProductsPage } from '../products/products';
+import { ProductPage } from '../product/product';
 
 @Component({
   selector: 'page-login',
@@ -16,6 +22,8 @@ import { ProductsPage } from '../products/products';
 })
 export class LoginPage {
    
+//    public loading;
+    
     public user = {
         email: '',
         password: ''
@@ -28,7 +36,7 @@ export class LoginPage {
 
     //items: FirebaseListObservable<any[]>;
 
-    constructor(public navCtrl: NavController,public  af: AngularFire, private _auth: AuthService, public menuCtrl: MenuController, private alertCtrl: AlertController, public loadCtrl : LoadingController) {
+    constructor(public navCtrl: NavController, public af: AngularFire, private _auth: AuthService, public menuCtrl: MenuController, public utils: Utils) {
    // this.items = af.database.list('/items');
        
         this.menuCtrl.enable(false);
@@ -37,60 +45,51 @@ export class LoginPage {
 
     // Login with credentials
     public login(): void {
-        this.showLoading();
-        /*this.af.auth.login({
-          email: this.user.email,
-          password: this.user.password,
-        },
-        {
-          provider: AuthProviders.Password,
-          method: AuthMethods.Password,
-        })*/
+        this.utils.showLoading();
+       
         this._auth.login(this.user)
             .then(() => this.onLogInSuccess())
-            .catch((error) => this.showError(error));
+            .catch((error) => this.utils.showError(error));
     }  
     
     // Register with credentials
     public registerUser(): void {
-        //console.log(this.user);
-        this.showLoading();
-        //this.showLoading();
+        this.utils.showLoading();
         this._auth.registerUser(this.user)
-            .then((user) => this.onRegisterSuccess(this.user))
-            .catch((error) => this.showError(error));
+            .then(() => this.onRegisterSuccess(this.user))
+            .catch((error) => this.utils.showError(error));
     }  
     
+    // SignIn with Facebook
     public signInWithFacebook(): void {
-        this.showLoading();
-        //.catch(error) => console.log('error');
+        this.utils.showLoading();
         this._auth.signInWithFacebook()
             .then(() => this.onSignInSuccess())
-            .catch((error) => this.showError(error));
+            .catch((error) => this.utils.showError(error));
     }
     
+    // Success login with credentials
     public onLogInSuccess(): void {
-        console.log("Loggged ",this.user.email);
-        //this.loading.dismiss();
+        this.utils.loading.dismiss();
         this.menuCtrl.enable(true);
-        this.navCtrl.push(ProductsPage);
+        this.navCtrl.push(ProductPage);
     }
 
     // Success SignIn with Facebook
     public onSignInSuccess(): void {
         console.log("Facebook display name ",this._auth.displayName());
-        //this.loading.dismiss();
+        this.utils.loading.dismiss();
         this.menuCtrl.enable(true);
-        this.navCtrl.push(ProductsPage);
+        this.navCtrl.push(ProductPage);
     }
     
     // Success registration
     private onRegisterSuccess(user): void {
-        //console.log("Register user ",this.user);
-        this.showMsg('Registro', 'Usuário registrado com sucesso!')       
+        this.utils.loading.dismiss();
+        this.utils.showMsg('Registro', 'Usuário registrado com sucesso!');  
     }
 
-    // Alert message
+  /*  // Alert message
     public showMsg(title, msg){
         let alert = this.alertCtrl.create({
             title: title,
@@ -102,6 +101,7 @@ export class LoginPage {
 
     // Alert with error message
     public showError(msg){
+        this.loading.dismiss();
         let alert = this.alertCtrl.create({
             title: 'Error',
             subTitle: msg,
@@ -111,16 +111,16 @@ export class LoginPage {
     }
 
     public showLoading() {
-        let loading = this.loadCtrl.create({
+        this.loading = this.loadCtrl.create({
             content: 'Please wait...'
         });
 
-        loading.present(loading);
+        this.loading.present(this.loading);
 
         setTimeout(() => {
-        loading.dismiss();
+        this.loading.dismiss();
         }, 3000);
-    }
+    }*/
 
  /*   
     public showLoading() {

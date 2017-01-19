@@ -37,7 +37,6 @@ export class AuthService {
     }
     
       public login(user): firebase.Promise < FirebaseAuthState > {
-        //this.showLoading();
         
         return this.af.auth.login({
           email: user.email,
@@ -48,13 +47,9 @@ export class AuthService {
           method: AuthMethods.Password,
         });
           
-          
-          //this.af.auth.login(user);
     } 
     
     public registerUser(user): firebase.Promise < FirebaseAuthState > {
-        //this.showLoading();
-        
         return this.af.auth.createUser(user);
     } 
     
@@ -79,7 +74,6 @@ export class AuthService {
 
     // Sign out
     public signOut(): void {
-       // this.auth$.logout();
          this.af.auth.logout();
     }
 

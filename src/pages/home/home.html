@@ -15,11 +15,100 @@
 
 
 <ion-content padding>
-    Songs list
 
-    <ion-list>
+
+    <ion-card>
+        <ion-card-header text-center class="title-dark">
+            <b>Info Art</b>
+        </ion-card-header>
+
+        <ion-list>
+            <ion-item>
+                <ion-icon name="medical" item-left></ion-icon>
+                <ion-label><b> CNPJ </b></ion-label>
+                <ion-label> 26.829.188/0001-79 </ion-label>
+            </ion-item>
+
+            <ion-item text-wrap>
+                <ion-icon name="book" item-left></ion-icon>
+                <ion-label><b> Nome Fantasia </b></ion-label>
+                <ion-label> INFOART CARTUCHOS E INFORMATICA </ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header text-center class="title-dark">
+            <b> Sócios </b>
+        </ion-card-header>
+
+        <ion-card>
+            <ion-card-header text-center style="font-size:200%">
+                <b> Johnny G. Santana </b>
+            </ion-card-header>
+
+            <ion-list>
+                <ion-item>
+                    <ion-icon name="md-person" item-left></ion-icon>
+                    <ion-label><b> CPF </b></ion-label>
+                    <ion-label> 024.491.951-81 </ion-label>
+                </ion-item>
+            </ion-list>
+
+        </ion-card>
+        <ion-card>
+            <ion-card-header text-center style="font-size:200%">
+                <b> Jhonata R. dos Santos </b>
+            </ion-card-header>
+
+            <ion-list>
+                <ion-item>
+                    <ion-icon name="md-person" item-left></ion-icon>
+                    <ion-label><b> CPF </b></ion-label>
+                    <ion-label> 029.149.921-06 </ion-label>
+                </ion-item>
+            </ion-list>
+        </ion-card>
+    </ion-card>
+
+    <!-- <ion-card>
+        <ion-card-header text-center style="font-size:200%">
+            <b> Johnny G. Santana </b>
+        </ion-card-header>
+
+        <ion-list>
+            <ion-item>
+                <ion-icon name="md-person" item-left></ion-icon>
+                <ion-label><b> CPF </b></ion-label>
+                <ion-label> 024.491.951-81 </ion-label>
+            </ion-item>
+            
+        </ion-list>
+    </ion-card>
+    
+    <ion-card>
+        <ion-card-header text-center style="font-size:200%">
+            <b> Jhonata R. dos Santos </b>
+        </ion-card-header>
+
+        <ion-list>
+            <ion-item>
+                <ion-icon name="md-person" item-left></ion-icon>
+                <ion-label><b> CPF </b></ion-label>
+                <ion-label> 029.149.921-06 </ion-label>
+            </ion-item>
+            
+        </ion-list>
+    </ion-card>-->
+
+
+    <!--<ion-list>
         <ion-item *ngFor="let song of songs | async" (click)="showOptions(song.$key, song.title)">
             {{song.title}}
         </ion-item>
-    </ion-list>
+        <ion-item>
+            <ion-label> CNPJ</ion-label>
+            <p>26.829.188/0001-79</p>
+        </ion-item>
+    </ion-list>-->
 </ion-content>
