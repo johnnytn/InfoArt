@@ -13,6 +13,8 @@ import { HomePage } from '../pages/home/home';
 import { Sidebar } from '../pages/sidebar/sidebar';
 import { ProductPage } from '../pages/product/product';
 import { ProviderPage } from '../pages/provider/provider';
+import { SalePage } from '../pages/sale/sale';
+import { RentPage } from '../pages/rent/rent';
  
 // AF2 Settings
 export const firebaseConfig = {
@@ -29,7 +31,9 @@ export const firebaseConfig = {
     LoginPage,
     HomePage,
     ProductPage,
-    ProviderPage
+    ProviderPage,
+    SalePage,
+    RentPage
       
   ],
   imports: [
@@ -42,7 +46,9 @@ export const firebaseConfig = {
     LoginPage,
     HomePage,
     ProductPage,
-    ProviderPage
+    ProviderPage,
+    SalePage,
+    RentPage
   ],
     providers: [AuthService, Utils]
   //providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]

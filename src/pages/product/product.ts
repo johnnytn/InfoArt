@@ -20,7 +20,6 @@ export class ProductPage {
     products: FirebaseListObservable < any > ;
 
     constructor( public alertCtrl: AlertController, private af: AngularFire, public actionSheetCtrl: ActionSheetController, public utils: Utils) {
-        //this.utils.showLoading();
         this.products = af.database.list('/products');
         //this.utils.loading.dismiss()
             //.then(() => this.utils.loading.dismiss())
@@ -38,11 +37,13 @@ export class ProductPage {
           {
             name: 'name',
             placeholder: 'Nome',
+              type:'text',
             checked : true
           },
           {
             name: 'quantity',
             placeholder: 'Quantidade',
+            type:'number',
             checked : true
           }
         ],
@@ -79,15 +80,15 @@ export class ProductPage {
         title: 'O que você quer fazer?',
         buttons: [
           {
-            text: 'Deletar Produto',
+            text: 'Atualizar o Produto',
+            handler: () => {
+              this.update(id, product);
+            }
+          },{
+            text: 'Deletar o Produto',
             role: 'destructive',
             handler: () => {
               this.remove(id);
-            }
-          },{
-            text: 'Atualizar Produto',
-            handler: () => {
-              this.update(id, product);
             }
           },{
             text: 'Cancelar',
@@ -111,11 +112,13 @@ export class ProductPage {
            {
             name: 'name',
             placeholder: 'Nome',
+            type:'text',
             value: product.name
           },
           {
             name: 'quantity',
             placeholder: 'Quantidade',
+            type:'number',
             value: product.quantity
           }
         ],

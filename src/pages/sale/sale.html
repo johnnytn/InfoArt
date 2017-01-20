@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-navbar color="dark" hideBackButton="true">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title> Fornecedores </ion-title>
+
+        <ion-buttons end>
+            <button ion-button icon-only (click)="add()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content text-center>
+
+    <div class="card">
+        <ion-title class="title-gray">
+            <b> Lista de Produtos Vendidos </b>
+        </ion-title>
+
+        <ion-grid>
+            <ion-list>
+                <ion-item>
+                    <ion-row>
+                        <ion-col width-50>
+                            Nome
+                        </ion-col>
+                        <ion-col width-10>
+                            Qtd
+                        </ion-col>
+                        <ion-col width-20>
+                            Preço
+                        </ion-col>
+                        <ion-col width-10>
+                            Total
+                        </ion-col>
+                    </ion-row>
+                </ion-item>
+
+                <ion-item *ngFor="let sale of sales | async" (click)="show(sale.$key, sale)" text-wrap>
+
+                    <ion-row>
+                        <ion-col width-50>
+                            {{sale.name}}
+                        </ion-col>
+
+                        <ion-col width-10>
+                            {{sale.quantity}}
+                        </ion-col>
+                        <ion-col width-20>
+                            {{sale.price}}
+                        </ion-col>
+                        <ion-col width-10>
+                            {{sale.total}}
+                        </ion-col>
+                    </ion-row>
+
+                </ion-item>
+            </ion-list>
+        </ion-grid>
+    </div>
+
+    <!--<ion-card>
+            <ion-card-header text-center class="title-gray">
+                <b> Lista de Fornecedores </b>
+            </ion-card-header>
+    </ion-card>-->
+
+
+</ion-content>

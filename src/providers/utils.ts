@@ -31,7 +31,9 @@ export class Utils {
 
     // Alert with error message
     public showError(msg){
-        this.loading.dismiss();
+        if(this.loading){
+            this.loading.dismiss();            
+        }
         let alert = this.alertCtrl.create({
             title: 'Error',
             subTitle: msg,

@@ -62,15 +62,6 @@ export class ProviderPage {
                 } else {
                     this.utils.showError('branco cara!');
                 }
-                
-                
-                
-              /*this.providers.push({
-                name: data.name,
-                email: data.email,
-                phone : data.phone
-                  
-              });*/
             }
           }
         ]
@@ -84,15 +75,15 @@ export class ProviderPage {
         title: 'O que você quer fazer?',
         buttons: [
           {
-            text: 'Deletar Fornecedor',
+            text: 'Atualizar o Fornecedor',
+            handler: () => {
+              this.update(id, provider);
+            }
+          },{
+            text: 'Deletar o Fornecedor',
             role: 'destructive',
             handler: () => {
               this.remove(id);
-            }
-          },{
-            text: 'Atualizar Fornecedor',
-            handler: () => {
-              this.update(id, provider);
             }
           },{
             text: 'Cancelar',
