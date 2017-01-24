@@ -3,6 +3,8 @@ import { IonicApp, IonicModule } from 'ionic-angular';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
+import { Storage } from '@ionic/storage';
+// Providers
 import { AuthService } from '../providers/auth-service';
 import { Utils } from '../providers/utils';
 
@@ -10,7 +12,6 @@ import { MyApp } from './app.component';
 // Pages
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
-import { Sidebar } from '../pages/sidebar/sidebar';
 import { ProductPage } from '../pages/product/product';
 import { ProviderPage } from '../pages/provider/provider';
 import { SalePage } from '../pages/sale/sale';
@@ -50,7 +51,7 @@ export const firebaseConfig = {
     SalePage,
     RentPage
   ],
-    providers: [AuthService, Utils]
+    providers: [AuthService, Utils, Storage]
   //providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}

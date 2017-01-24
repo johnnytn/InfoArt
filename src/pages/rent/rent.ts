@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 import { 
-  NavController, 
   AlertController, 
   ActionSheetController } from 'ionic-angular';
 

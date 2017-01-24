@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { NavController, 
-        MenuController, 
-        AlertController, LoadingController } from 'ionic-angular';
-
-import { AngularFire, 
-        FirebaseListObservable,
-        AuthProviders, 
-        AuthMethods} from 'angularfire2';
+        MenuController } from 'ionic-angular';
 
 // Providers
 import { AuthService } from '../../providers/auth-service';
@@ -28,25 +23,29 @@ export class LoginPage {
         email: '',
         password: ''
     }
-    /*public email = '';
-    public password = '';*/
 
-    
-    //public loadingCtrl: LoadingController
-
-    //items: FirebaseListObservable<any[]>;
-
-    constructor(public navCtrl: NavController, public af: AngularFire, private _auth: AuthService, public menuCtrl: MenuController, public utils: Utils) {
-   // this.items = af.database.list('/items');
+    constructor(public navCtrl: NavController, private _auth: AuthService, public menuCtrl: MenuController, public utils: Utils, public storage: Storage) {
+        
+        this.storage.get('email').then((val) => {
+            console.log('Your email is', val);
+            this.user.email = val;
+         });
+        
+        this.storage.get('password').then((val) => {
+            console.log('Your password is', val);
+            this.user.password = val;
+         });
        
         this.menuCtrl.enable(false);
-
     }
 
     // Login with credentials
     public login(): void {
         this.utils.showLoading();
-       
+        // Set data into the local storage
+        this.storage.set('email', this.user.email);
+        this.storage.set('password', this.user.password);
+        
         this._auth.login(this.user)
             .then(() => this.onLogInSuccess())
             .catch((error) => this.utils.showError(error));
@@ -72,7 +71,7 @@ export class LoginPage {
     public onLogInSuccess(): void {
         this.utils.loading.dismiss();
         this.menuCtrl.enable(true);
-        this.navCtrl.push(ProductPage);
+        this.navCtrl.push(HomePage);
     }
 
     // Success SignIn with Facebook
@@ -80,7 +79,7 @@ export class LoginPage {
         console.log("Facebook display name ",this._auth.displayName());
         this.utils.loading.dismiss();
         this.menuCtrl.enable(true);
-        this.navCtrl.push(ProductPage);
+        this.navCtrl.push(HomePage);
     }
     
     // Success registration

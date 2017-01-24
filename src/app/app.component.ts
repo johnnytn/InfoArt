@@ -4,7 +4,6 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
-import { Sidebar } from '../pages/sidebar/sidebar';
 import { ProductPage } from '../pages/product/product';
 import { ProviderPage } from '../pages/provider/provider';
 import { SalePage } from '../pages/sale/sale';
@@ -18,18 +17,18 @@ export class MyApp {
 
   rootPage: any = LoginPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, icon: string,component: any}>;
 
   constructor(public platform: Platform) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Principal', component: HomePage },
-      { title: 'Produtos Vendidos', component: SalePage },
-      { title: 'Produtos para Comprar', component: ProductPage },
-      { title: 'Alugéis', component: RentPage },
-      { title: 'Fornecedores', component: ProviderPage },
+      { title: 'Principal', icon:'md-home', component: HomePage },
+      { title: 'Produtos Vendidos', icon:'md-bookmarks', component: SalePage },
+      { title: 'Produtos para Comprar', icon:'md-cart', component: ProductPage },
+      { title: 'Alugéis', icon:'md-briefcase', component: RentPage },
+      { title: 'Fornecedores', icon:'md-call', component: ProviderPage },
     ];
 
   }
