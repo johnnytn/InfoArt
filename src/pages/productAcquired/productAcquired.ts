@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
 
-import { 
-  AlertController, 
-  ActionSheetController } from 'ionic-angular';
-
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 // Providers
@@ -18,7 +14,7 @@ export class ProductAcquiredPage {
 
     products: FirebaseListObservable < any > ;
 
-    constructor( public alertCtrl: AlertController, private af: AngularFire, public actionSheetCtrl: ActionSheetController, public utils: Utils) {
+    constructor( private af: AngularFire) {
         //this.products = af.database.list('/products');
         
         this.products  = af.database.list('/products', {
@@ -34,9 +30,6 @@ export class ProductAcquiredPage {
         
         //this.utils.loading.dismiss();
     }
-
-  
-    // Show
  
    
     

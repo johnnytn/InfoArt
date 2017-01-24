@@ -19,14 +19,20 @@ export class AuthService {
     constructor( public af: AngularFire ) {       
         this.af.auth.subscribe(auth => {
             this.authState = auth;
-            //console.log(auth);
+           // alert(auth);
         });
 
     }
 
+    /*set authenticated(authenticated) {
+        this.authState = authenticated;        
+    }*/
+    
     get authenticated(): boolean {
         return this.authState !== null;        
+        //return this.authState;        
     }
+    
 
     // Sign with facebook
     public signInWithFacebook(): firebase.Promise < FirebaseAuthState > {

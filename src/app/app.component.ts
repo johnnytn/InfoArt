@@ -16,7 +16,7 @@ import { RentPage } from '../pages/rent/rent';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = ProductAcquiredPage;
 
   pages: Array<{title: string, icon: string,component: any}>;
 

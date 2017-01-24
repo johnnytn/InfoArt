@@ -19,13 +19,13 @@
 
     <div class="card">
         <ion-title class="title-gray">
-            <!--<b> Lista de Produtos para comprar </b>-->
+            <b> Lista de Produtos para comprar </b>
         </ion-title>
 
         <ion-grid>
             <ion-list>
                 <ion-item>
-                    <ion-row class="title-gray">
+                    <ion-row>
                         <ion-col width-50>
                             Nome
                         </ion-col>
@@ -38,7 +38,7 @@
                     </ion-row>
                 </ion-item>
 
-                <ion-item *ngFor="let product of products | async" (click)="show(product.$key, product)" text-wrap>
+                <ion-item *ngFor="let product of products | async" text-wrap>
 
                     <ion-row>
                         <ion-col width-50>

@@ -16,8 +16,6 @@ import { ProductPage } from '../product/product';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-   
-//    public loading;
     
     public user = {
         email: '',
@@ -26,6 +24,7 @@ export class LoginPage {
 
     constructor(public navCtrl: NavController, private _auth: AuthService, public menuCtrl: MenuController, public utils: Utils, public storage: Storage) {
         
+        // Get the local storage data
         this.storage.get('email').then((val) => {
             console.log('Your email is', val);
             this.user.email = val;
@@ -76,7 +75,8 @@ export class LoginPage {
 
     // Success SignIn with Facebook
     public onSignInSuccess(): void {
-        console.log("Facebook display name ",this._auth.displayName());
+       /* console.log("Facebook display name",this._auth.displayName());*/
+        
         this.utils.loading.dismiss();
         this.menuCtrl.enable(true);
         this.navCtrl.push(HomePage);
@@ -87,47 +87,5 @@ export class LoginPage {
         this.utils.loading.dismiss();
         this.utils.showMsg('Registro', 'Usuário registrado com sucesso!');  
     }
-
-  /*  // Alert message
-    public showMsg(title, msg){
-        let alert = this.alertCtrl.create({
-            title: title,
-            subTitle: msg,
-            buttons: ['Dismiss']
-        });
-      alert.present();
-    }
-
-    // Alert with error message
-    public showError(msg){
-        this.loading.dismiss();
-        let alert = this.alertCtrl.create({
-            title: 'Error',
-            subTitle: msg,
-            buttons: ['Dismiss']
-        });
-        alert.present();
-    }
-
-    public showLoading() {
-        this.loading = this.loadCtrl.create({
-            content: 'Please wait...'
-        });
-
-        this.loading.present(this.loading);
-
-        setTimeout(() => {
-        this.loading.dismiss();
-        }, 3000);
-    }*/
-
- /*   
-    public showLoading() {
-        let loading = this.loadingCtrl.create({
-            content: 'Loading... Please wait.'
-        });
-        loading.present();
-    }*/
-    
 
 }
