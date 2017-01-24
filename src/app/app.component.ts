@@ -5,6 +5,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ProductPage } from '../pages/product/product';
+import { ProductAcquiredPage } from '../pages/productAcquired/productAcquired';
 import { ProviderPage } from '../pages/provider/provider';
 import { SalePage } from '../pages/sale/sale';
 import { RentPage } from '../pages/rent/rent';
@@ -15,7 +16,7 @@ import { RentPage } from '../pages/rent/rent';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = HomePage;
 
   pages: Array<{title: string, icon: string,component: any}>;
 
@@ -27,6 +28,7 @@ export class MyApp {
       { title: 'Principal', icon:'md-home', component: HomePage },
       { title: 'Produtos Vendidos', icon:'md-bookmarks', component: SalePage },
       { title: 'Produtos para Comprar', icon:'md-cart', component: ProductPage },
+      { title: 'Produtos Comprados', icon:'md-archive', component: ProductAcquiredPage },
       { title: 'Alugéis', icon:'md-briefcase', component: RentPage },
       { title: 'Fornecedores', icon:'md-call', component: ProviderPage },
     ];

@@ -18,7 +18,11 @@ export class ProviderPage {
   providers: FirebaseListObservable < any > ;
 
     constructor(public alertCtrl: AlertController, private af: AngularFire, public actionSheetCtrl: ActionSheetController, public utils: Utils) {
-        this.providers = af.database.list('/providers');
+        this.providers = af.database.list('/providers', {
+          query: {
+              orderByChild: 'name'
+          }
+        });
     }
 
     // Add providers 

@@ -14,6 +14,10 @@
 
 .title-gray {
   background-color: #222;
+    color: #fff;
+    /*ion-col {
+        
+    }*/
 }
 
 .title-gray b {

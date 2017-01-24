@@ -13,6 +13,7 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ProductPage } from '../pages/product/product';
+import { ProductAcquiredPage } from '../pages/productAcquired/productAcquired';
 import { ProviderPage } from '../pages/provider/provider';
 import { SalePage } from '../pages/sale/sale';
 import { RentPage } from '../pages/rent/rent';
@@ -32,6 +33,7 @@ export const firebaseConfig = {
     LoginPage,
     HomePage,
     ProductPage,
+    ProductAcquiredPage,
     ProviderPage,
     SalePage,
     RentPage
@@ -47,6 +49,7 @@ export const firebaseConfig = {
     LoginPage,
     HomePage,
     ProductPage,
+    ProductAcquiredPage,
     ProviderPage,
     SalePage,
     RentPage

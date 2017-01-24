@@ -7,7 +7,7 @@ import {
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 // Providers
-import {  Utils } from '../../providers/utils';
+import { Utils } from '../../providers/utils';
 
 @Component({ 
     selector: 'page-product',
@@ -19,7 +19,15 @@ export class ProductPage {
     products: FirebaseListObservable < any > ;
 
     constructor( public alertCtrl: AlertController, private af: AngularFire, public actionSheetCtrl: ActionSheetController, public utils: Utils) {
-        this.products = af.database.list('/products');
+        //this.products = af.database.list('/products');
+        
+        this.products  = af.database.list('/products', {
+          query: {
+              orderByChild: 'acquired',
+              equalTo: false
+          }
+        });
+        
         //this.utils.loading.dismiss()
             //.then(() => this.utils.loading.dismiss())
           //  .catch((error) => this.utils.showError(error));
@@ -60,8 +68,8 @@ export class ProductPage {
              if (data.name && data.quantity) {
                 this.products.push({
                     name: data.name,
-                    quantity: data.quantity
-
+                    quantity: data.quantity,
+                    acquired : false
                   });
               } else {
                 this.utils.showError('branco cara!');
@@ -82,6 +90,11 @@ export class ProductPage {
             text: 'Atualizar o Produto',
             handler: () => {
               this.update(id, product);
+            }
+          },{
+            text: 'Compra realizada?',
+            handler: () => {
+              this.acquired(id, product);
             }
           },{
             text: 'Deletar o Produto',
@@ -147,6 +160,44 @@ export class ProductPage {
       prompt.present();
     }
     
+    
+        // Update
+    acquired(id, product){
+      let prompt = this.alertCtrl.create({
+        title: 'Compra realizada?',
+        message: "Compra realizada?",
+        inputs: [
+           {
+            name: 'price',
+            placeholder: 'Valor Total',
+            type:'number'
+           }         
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            handler: data => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Save',
+            handler: data => {
+                // Verify if the fields are empty
+                if (data.price) {
+                    this.products.update(id, {
+                        price: data.price,
+                        acquired: true
+                      });
+                } else {
+                    this.utils.showError('Valor Total da compra é necessário!');
+                }
+            }
+          }
+        ]
+      });
+      prompt.present();
+    }
     
     // Remove 
     remove(id: string){

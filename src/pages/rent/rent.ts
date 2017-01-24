@@ -18,7 +18,11 @@ export class RentPage {
   rents: FirebaseListObservable < any > ;
 
     constructor(public alertCtrl: AlertController, private af: AngularFire, public actionSheetCtrl: ActionSheetController, public utils: Utils) {
-        this.rents = af.database.list('/rents');
+        this.rents = af.database.list('/rents', {
+          query: {
+              orderByChild: 'company'
+          }
+        });
     }
 
     // Add rents 
@@ -39,7 +43,7 @@ export class RentPage {
           },
           {
             name: 'price',
-            placeholder: 'Preço',
+            placeholder: 'Valor',
             type:'number'
           },
           {
