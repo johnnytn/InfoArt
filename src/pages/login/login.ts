@@ -9,7 +9,7 @@ import {  Utils } from '../../providers/utils';
 
 //Pages
 import { HomePage } from '../home/home';
-import { ProductPage } from '../product/product';
+//import { ProductPage } from '../product/product';
 
 @Component({
   selector: 'page-login',

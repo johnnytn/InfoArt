@@ -5,23 +5,16 @@
         </button>
         <ion-title> Produtos Comprados </ion-title>
 
-        <ion-buttons end>
-            <button ion-button icon-only (click)="add()">
-                <ion-icon name="add"></ion-icon>
-            </button>
-        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
 
 <ion-content text-center>
-    <!--<p><b> <h2> Lista de Produtos para compra </h2> </b></p>-->
 
     <div class="card">
         <ion-title class="title-gray">
-            <b> Lista de Produtos para comprar </b>
+            <b> Lista de Produtos para comprados </b>
         </ion-title>
-
         <ion-grid>
             <ion-list>
                 <ion-item>
@@ -38,7 +31,7 @@
                     </ion-row>
                 </ion-item>
 
-                <ion-item *ngFor="let product of products | async" text-wrap>
+                <ion-item *ngFor="let product of products | async" (click)="show(product.$key, rent)" text-wrap>
 
                     <ion-row>
                         <ion-col width-50>

@@ -16,6 +16,7 @@ import { RentPage } from '../pages/rent/rent';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  //rootPage: any = LoginPage;
   rootPage: any = ProductAcquiredPage;
 
   pages: Array<{title: string, icon: string,component: any}>;
@@ -29,7 +30,7 @@ export class MyApp {
       { title: 'Produtos Vendidos', icon:'md-bookmarks', component: SalePage },
       { title: 'Produtos para Comprar', icon:'md-cart', component: ProductPage },
       { title: 'Produtos Comprados', icon:'md-archive', component: ProductAcquiredPage },
-      { title: 'Alugéis', icon:'md-briefcase', component: RentPage },
+      { title: 'Aluguéis', icon:'md-briefcase', component: RentPage },
       { title: 'Fornecedores', icon:'md-call', component: ProviderPage },
     ];
 

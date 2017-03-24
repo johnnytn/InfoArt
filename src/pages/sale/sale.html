@@ -23,7 +23,7 @@
 
         <ion-grid>
             <ion-list>
-                <ion-item>
+                <ion-item text-wrap>
                     <ion-row>
                         <ion-col width-50>
                             Nome
@@ -31,8 +31,11 @@
                         <ion-col width-10>
                             Qtd
                         </ion-col>
-                        <ion-col width-20>
+                        <ion-col width-10>
                             Preço
+                        </ion-col>
+                        <ion-col width-20>
+                            F. Pagamento
                         </ion-col>
                         <ion-col width-10>
                             Total
@@ -50,8 +53,11 @@
                         <ion-col width-10>
                             {{sale.quantity}}
                         </ion-col>
-                        <ion-col width-20>
+                        <ion-col width-10>
                             {{sale.price}}
+                        </ion-col>
+                        <ion-col width-20>
+                            {{sale.paymentMethod}}
                         </ion-col>
                         <ion-col width-10>
                             {{sale.total}}
