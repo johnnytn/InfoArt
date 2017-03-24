@@ -18,6 +18,9 @@
             "APP_NAME": "InfoArt",
             "PACKAGE_NAME": "com.infoart"
         },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.infoart"
+        },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.infoart"
         },
@@ -27,13 +30,10 @@
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.infoart"
         },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.infoart"
-        },
-        "cordova-plugin-inappbrowser": {
-            "PACKAGE_NAME": "com.infoart"
-        },
         "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.infoart"
+        },
+        "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.infoart"
         }
     },

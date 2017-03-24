@@ -17,21 +17,21 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   //rootPage: any = LoginPage;
-  rootPage: any = ProductAcquiredPage;
+  rootPage: any = LoginPage;
 
-  pages: Array<{title: string, icon: string,component: any}>;
+  pages: Array<{ title: string, icon: string, component: any }>;
 
   constructor(public platform: Platform) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Principal', icon:'md-home', component: HomePage },
-      { title: 'Produtos Vendidos', icon:'md-bookmarks', component: SalePage },
-      { title: 'Produtos para Comprar', icon:'md-cart', component: ProductPage },
-      { title: 'Produtos Comprados', icon:'md-archive', component: ProductAcquiredPage },
-      { title: 'Aluguéis', icon:'md-briefcase', component: RentPage },
-      { title: 'Fornecedores', icon:'md-call', component: ProviderPage },
+      { title: 'Principal', icon: 'md-home', component: HomePage },
+      { title: 'Produtos Vendidos', icon: 'md-bookmarks', component: SalePage },
+      { title: 'Produtos para Comprar', icon: 'md-cart', component: ProductPage },
+      { title: 'Produtos Comprados', icon: 'md-archive', component: ProductAcquiredPage },
+      { title: 'Aluguéis', icon: 'md-briefcase', component: RentPage },
+      { title: 'Fornecedores', icon: 'md-call', component: ProviderPage },
     ];
 
   }
@@ -41,7 +41,11 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
-      Splashscreen.hide();
+
+      setTimeout(() => {
+        Splashscreen.hide();
+      }, 100);
+        
     });
   }
 

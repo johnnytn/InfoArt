@@ -57,7 +57,6 @@ export class ProviderPage {
     prompt.present();
   }
 
-
   // Remove 
   remove(id: string) {
     this.providers.remove(id);
